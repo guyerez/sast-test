@@ -16,7 +16,7 @@ app = FastAPI()
 # Allow frontend to talk to backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # You can limit this to specific frontend origins
+    allow_origins = ["*"],   # You can limit this to specific frontend origins
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -84,3 +84,4 @@ async def import_spellbook(spellbook: YAMLSpellbook):
     except Exception as e:
         logger.error(f"Spellbook import failed: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Import failed: {str(e)}")
+
